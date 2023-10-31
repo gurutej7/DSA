@@ -13,7 +13,7 @@
  */
 
  //This question is Similar to Lower Bound 
- //We have return the minimum index where nums[i]>= x (x=given number)
+ //We have to return the minimum index where nums[i]>= x (x=given number)
 
 public class SearchInsertPos{
     public static void main(String[] args) {
