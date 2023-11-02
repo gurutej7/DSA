@@ -8,7 +8,6 @@ not found, the lower bound algorithm returns n i.e. size of the given array.
  */
 
 public class LowerBound {
-
     public static void main(String[] args) {
 
         int arr [] = {2,5,8,6,9,15};
