@@ -52,6 +52,7 @@ public class sudokuSolver {
             return true;
         }
 
+        
         private static void showBoard(char[][] board) {
             for (char[] row : board) {
                 for (char ch : row) {
