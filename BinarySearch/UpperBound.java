@@ -1,5 +1,3 @@
-package BinarySearch;
-
 /*
    What is Upper Bound?
 The upper bound algorithm finds the first or the smallest index in a sorted array where
