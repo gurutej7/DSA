@@ -27,7 +27,6 @@ public class KokoEatingBananas {
     public static int minEatingSpeed(int[] piles, int h) {
         int low = 1 ;
         int high = Max(piles);
-        int ans = 0;
         while(low<=high){
             int mid = low + (high-low)/2 ;
             // if koko can eat, mid bananas per hour in less then or equals to h time
