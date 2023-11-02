@@ -13,7 +13,6 @@ public class MazePaths {
     //Function to return total number of paths
     public static int countPaths(int r,int c,int n,boolean[][] maze){
         if(r==n-1 && c==n-1) return 1;
-
         //If the current cell is already visited just return zero
         if(maze[r][c]==false) return 0;
         // Else if you are visiting the cell for the first time mark it as visited
