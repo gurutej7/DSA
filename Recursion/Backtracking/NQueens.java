@@ -1,7 +1,4 @@
 package Recursion.Backtracking;
-
-import java.util.*;
-
 public class NQueens{
     public static void main(String[] args) {
         int n = 4;
