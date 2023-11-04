@@ -30,5 +30,4 @@ public class ReduceAnumToZero {
         if(n%2==0) return stepsToZero(n/2 , count+1);
         else return stepsToZero(n-1 , count+1);
     }
-    
 }
