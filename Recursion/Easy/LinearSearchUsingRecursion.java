@@ -14,6 +14,7 @@ public class LinearSearchUsingRecursion {
         for(int i = 0 ; i<n ; i++){
             arr[i] = in.nextInt();
         }
+        
         System.out.println("Enter the Target to Search : ");
         int target = in.nextInt();
         System.out.println(linearSearch(arr,target,0));
