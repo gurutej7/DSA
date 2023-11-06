@@ -1,5 +1,6 @@
 package Recursion.Easy;
 
+
 import java.util.Scanner;
 public class IsSorted {
     public static void main(String[] args) {
