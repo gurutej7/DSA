@@ -29,6 +29,7 @@ public class RotatedBS {
             return rotatedBinarySearch(arr, s, m-1, target); // Search in left half
             else return rotatedBinarySearch(arr, m+1, e, target);// Search in right half
         }
+        
         //case 2
         if(target>=arr[m] && target<=arr[e]) 
         return rotatedBinarySearch(arr, m+1, e, target);
