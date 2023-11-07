@@ -52,6 +52,5 @@ public class MazeProblems {
         if(r<n)ansList.addAll(mazePathsReturn(r+1, c, n, path+'L'));
 
         return ansList;
-    }
-    
+    } 
 }
