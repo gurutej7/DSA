@@ -16,6 +16,7 @@ public class QuickSort {
         }
         quickSort(arr, 0, n-1);
         System.out.println(Arrays.toString(arr));
+        in.close();
 
     }
     public static void quickSort(int[] nums, int low, int hi) {
