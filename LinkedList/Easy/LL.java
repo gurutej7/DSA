@@ -21,7 +21,7 @@ public class LL {
 	}
 
 	//Function to addFirst
-	private void addFirst(int data){
+	public void addFirst(int data){
 		//case: If the list is empty, create a node and assign it as head
 		if(head == null){
 			Node temp = new Node(data);
@@ -35,7 +35,7 @@ public class LL {
 		}
 	}
 	//Function to add Last
-	private void addLast(int data){
+	public void addLast(int data){
 		//case: If the list is empty, create a node and assign it as head
 		if(head == null){
 			Node temp = new Node(data);
@@ -51,7 +51,7 @@ public class LL {
 		curr.next = newNode;
 	}
 	//Function to print the List
-	private void printList(){
+	public void printList(){
 		if(head == null) {
 			System.out.println("List is Empty");
 			return;
@@ -66,7 +66,7 @@ public class LL {
 	}
 
 	//Function to remove First Element in a Linked list
-	private void removeFirst(){
+	public void removeFirst(){
 		if(head == null) {
 			System.out.println("List is Empty");
 			return;
@@ -80,7 +80,7 @@ public class LL {
 	}
 
 	//Function to remove Last Element in a Linked List
-	private void removeLast(){
+	public void removeLast(){
 		if(head == null) {
 			System.out.println("List is Empty");
 			return;
@@ -99,7 +99,7 @@ public class LL {
 	}
 
 	//By default remove from last function
-	private void remove(){
+	public void remove(){
 		if(head == null) {
 			System.out.println("List is Empty");
 			return;
@@ -118,7 +118,7 @@ public class LL {
 	}
 
 	//By default add at last
-	private void add(int data){
+	public void add(int data){
 		//case: If the list is empty, create a node and assign it as head
 		if(head == null){
 			Node temp = new Node(data);
