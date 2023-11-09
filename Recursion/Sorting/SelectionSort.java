@@ -16,6 +16,7 @@ public class SelectionSort {
 		}
 		selectionSort(arr,n,0,0);
 		System.out.println(Arrays.toString(arr));
+		in.close();
     }
 
 
