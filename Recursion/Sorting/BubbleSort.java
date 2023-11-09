@@ -16,6 +16,7 @@ public class BubbleSort{
       }
       bubbleSort(arr,arr.length-1,0);
       System.out.println(Arrays.toString(arr));
+      in.close();
   }
 
   //Bubble Sort
