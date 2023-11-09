@@ -16,6 +16,7 @@ public class MergeSort {
         }
         divide(arr, 0, n-1);
         System.out.println(Arrays.toString(arr));
+        in.close();
 
     }
     //Function to divide the Array into two halves
