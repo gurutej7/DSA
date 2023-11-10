@@ -2,12 +2,12 @@ package LinkedList.Easy;
 
 public class LL {
 	//Head Node 
-	Node head;
+	public Node head;
 
 	//Node class
-	class Node{
-		int data;
-		Node next;
+	public class Node{
+		public int data;
+		public Node next;
 		//Constructer
 		Node(){
 			this.data = 0;
