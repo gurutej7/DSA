@@ -18,6 +18,22 @@ public class LL {
 			this.data = data;
 			this.next = null;
 		}
+
+		//Function to print the list of nodes
+		public void printListNode(Node head){
+			if(head == null) {
+			System.out.println("List is Empty");
+			return;
+		}
+
+		Node curr = head;
+		while (curr!=null) {
+			System.out.print(curr.data + "->");
+			curr = curr.next;
+		}
+		System.out.println("null");
+
+		}
 	}
 
 	//Function to addFirst
