@@ -6,6 +6,7 @@ public class CountZeros {
     Scanner in = new Scanner(System.in);
     int n = in.nextInt();
     System.out.println(countZeros(n,0));
+    in.close();
     }
     
     //Function to Count the Number of Zeros in a Number
