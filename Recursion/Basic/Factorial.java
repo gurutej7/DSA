@@ -9,6 +9,7 @@ public class Factorial {
     System.out.println(fact(n));
     long m  = in.nextLong();
     System.out.println(factLong(m));
+    in.close();
   }
   //Function to return the factorial of a number
   static int fact(int n){
