@@ -7,6 +7,8 @@ public class SumOfDigits {
         int n = in.nextInt();
         System.out.println(sumOfDigits(n));
         System.out.println(productOfDigits(n));
+
+        in.close();
     }
     //Function to Calculate the Sum of Digits of a Number
     public static int sumOfDigits(int n) {
