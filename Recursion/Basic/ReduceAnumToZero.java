@@ -6,6 +6,7 @@ public class ReduceAnumToZero {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         System.out.println(stepsToZero(n,0));
+        in.close();
     }
     /*
     Given an integer num, return the number of steps to reduce it to zero.
