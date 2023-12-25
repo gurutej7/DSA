@@ -7,6 +7,8 @@ public class Fibonacci{
     Scanner in = new Scanner(System.in);
     int n = in.nextInt();
     System.out.println(fibo(n));
+
+    in.close();
   }
   //Find the nth Fibonacci Number
   //Fibonacci Series 0,1,1,2,3,5,8,13,21...
