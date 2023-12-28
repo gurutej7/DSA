@@ -13,6 +13,8 @@ public class IsSorted {
             arr[i] = in.nextInt();
         }
         System.out.println(isSortedArray(arr,0));
+
+        in.close();
     }
     //Function to check if the Array is Sorted or Not
     public static boolean isSortedArray(int [] arr,int index){
