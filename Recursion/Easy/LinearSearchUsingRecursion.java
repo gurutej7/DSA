@@ -23,6 +23,8 @@ public class LinearSearchUsingRecursion {
         ArrayList<Integer> ans = new ArrayList<>();
         ans = findAllIndex(arr, target, 0, ans);
         System.out.println(ans);
+
+        in.close();
     }
 
     //Recursive Function to Linear Search in the Array
