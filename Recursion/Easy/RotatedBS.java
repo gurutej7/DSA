@@ -16,6 +16,8 @@ public class RotatedBS {
         System.out.println("Enter the Target to Search : ");
         int target = in.nextInt();
         System.out.println(rotatedBinarySearch(arr,target,0,n-1));
+
+        in.close();
     }
     //Example Rotated Sorted Array {5,6,7,8,9,1,2,3}
     public static boolean rotatedBinarySearch(int arr[], int s,int e, int target){
