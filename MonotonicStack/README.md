@@ -1,18 +1,19 @@
 # What is a Monotonic Stack?
-A monotonic stack is a stack whose elements are monotonically increasing or decreasing. It contains all 
+A monotonic stack is a stack whose elements are monotonically **increasing** or **decreasing**. It contains all
 qualities that a typical stack has and its elements are all monotonic decreasing or increasing.
 
 ## When to Use Monotonic Stack ?
 Below are the features of a monotonic stack:
-1. It is a _range of queries in an array_ situation.
-2. The _minima/maxima_ element or the monotonic order of elements in a range is useful to get answer of every range query.
-3. When a element is popped from the monotonic stack, it will never be used again.
+1. It is a **_range of queries in an array_** situation.
+2. The **_minima/maxima_** element or the monotonic order of elements in a range is useful to get answer of every range query.
+3. When a element is popped from the monotonic stack, _it will never be used again_.
 
 ## Types of Monotonic Stack:
 There are 2 types of monotonic stacks:
 
 * Monotonic Increasing Stack
 * Monotonic Decreasing Stack
+
 ### Monotonic Increasing Stack:
 It is a stack in which the elements are in increasing order from the bottom to the top of the stack. 
 
@@ -54,5 +55,5 @@ To create a Monotonic Decreasing Stack, begin with an empty stack, then, while i
   carefully. As once the elements are popped from the stack, we cannot get them back.
 
 #### References
-* [](https://github.com/lzl124631x/algorithm/blob/master/monotonic-stack.md#monotonic-stack)
-* [](https://www.geeksforgeeks.org/how-to-identify-and-solve-monotonic-stack-problems/)
+* [https://github.com/lzl124631x/algorithm/blob/master/monotonic-stack.md#monotonic-stack](https://github.com/lzl124631x/algorithm/blob/master/monotonic-stack.md#monotonic-stack)
+* [https://www.geeksforgeeks.org/how-to-identify-and-solve-monotonic-stack-problems/](https://www.geeksforgeeks.org/how-to-identify-and-solve-monotonic-stack-problems/)
