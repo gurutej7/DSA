@@ -8,17 +8,18 @@ import java.util.Queue;
 public class StackUsingQueue {
     public static void main(String[] args) {
 
-        stack st = new stack();
+        st s = new st();
 
-        st.push(2);
-        st.push(3);
-        st.pop();
+        s.push(2);
+        s.push(3);
+        s.pop();
+        System.out.println(s.pop());
         
     }
     
 }
 // Using only one queue
-class stack {
+class st {
     Queue < Integer > q = new LinkedList < > ();
     void push(int x) {
         q.add(x); // Works like a circle , All the elements infront of the new element will move and stand 
