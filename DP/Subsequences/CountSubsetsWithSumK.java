@@ -24,29 +24,31 @@ public class CountSubsetsWithSumK {
         System.out.println( findWaysMemo(nums, k) );
 
         System.out.println( findWaysTabu(nums, k) );
+
+        System.out.println( findWays(nums, k) );
     }
+
+    static int mod = (int)1e9+7;
     
     static int findWaysUtil(int ind, int target,int[] arr, int[][] dp){
-
+        // Base cases
         if(ind == 0){
-                if(target==0 && arr[0]==0) // Edge cases 
-                // refer =>{ https://takeuforward.org/data-structure/count-partitions-with-given-difference-dp-18/ }
-                    return 2;
-                if(target==0 || target == arr[0])
-                    return 1;
-                return 0;
+            if(arr[0] == 0 && target == 0) return 2 ; // Since we have two choices can pick the zero at 0th index or not pick
+            if(target == 0 || target == arr[0]) return 1 ; // Not pick => target == 0  pick => target == arr[0]
+            return 0 ;
         }
+
+        if(dp[ind][target] != -1) return dp[ind][target] ;// Avoid recomputing for the same state
+
+        int notPick = fMemo(ind-1, target, arr, dp);
+        int pick = 0 ;
+        // We can only pick if it is less than equal to target
+        if(arr[ind] <= target) pick = fMemo(ind-1, target - arr[ind] , arr, dp);
+
+        dp[ind][target] = (pick + notPick ) % mod ;
+
+        return dp[ind][target];
         
-        if(dp[ind][target]!=-1)
-            return dp[ind][target];
-            
-        int notTaken = findWaysUtil(ind-1,target,arr,dp);
-        
-        int taken = 0;
-        if(arr[ind]<=target)
-            taken = findWaysUtil(ind-1,target-arr[ind],arr,dp);
-            
-        return dp[ind][target]= notTaken + taken;
     }
     
     static int findWays(int[] num, int k){
@@ -59,29 +61,39 @@ public class CountSubsetsWithSumK {
         return findWaysUtil(n-1,k,num,dp);
     }
 
-    static int mod = (int)1e9+7;
-    private static int findWaysTabu(int nums[] , int k){
-        // Write your code here.
-        int n = nums.length;
 
-        int dp[][] = new int [n][k+1];
+    private static int findWaysTabu(int arr[] , int target){
+        // Write your code here.
+        int n = arr.length;
+        int dp[][] = new int[n][target+1];
 
         // Write down the base cases
-        if(nums[0] <= k) dp[0][nums[0]] = 1;
+        if(arr[0] == 0) dp[0][0] = 2; // pick and not pick both are valid
+        else dp[0][0] = 1 ; // Target = 0  we donot pick 0th index
 
-        for(int i = 0 ; i< n ; i++) dp[i][0] = 1;
-         // Look at the changing parameters
-        for(int ind = 1 ; ind < n ; ind++){
-            for(int currSum = 1 ; currSum <= k ; currSum++){
-                // Notpick
+        if(arr[0] != 0 && arr[0] <= target) dp[0][arr[0]] = 1; // base case where ind == 0 && target == arr[0]  , we will pick it
+
+        
+
+        // Write for loops for the changing parameters
+
+        for(int ind = 1 ; ind<n ; ind++){
+            for(int currSum = 0 ; currSum <= target ; currSum++){
+                // Copy the recurrence
                 int notPick = dp[ind-1][currSum];
-                int pick = 0;
-                if(nums[ind] <= currSum) pick = dp[ind-1][currSum-nums[ind]];
-                dp[ind][currSum] = (pick + notPick)%mod ;
+                int pick =  0 ;
+                if(arr[ind] <= currSum) pick = dp[ind-1][currSum - arr[ind]] ;
+
+                dp[ind][currSum] = (pick+notPick) % mod;
             }
         }
-        return dp[n-1][k]%mod;
+
+        return dp[n-1][target];
+        
     }
+    // when nums has no 0 `s 
+    // The below code works fine
+    // If the given array has 0`s then we have to adjust the base cases
     private static int findWaysMemo(int nums[], int k) {
         // Write your code here.
         int n = nums.length;
