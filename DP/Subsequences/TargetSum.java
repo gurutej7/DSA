@@ -27,6 +27,8 @@ public class TargetSum {
         int target = 3 ;
 
         System.out.println( findTargetSumWaysMemo(nums, target) );
+
+        System.out.println( countPartitionsTabu(nums.length, target, nums) );
     }
 
     private static int findTargetSumWaysMemo(int[] nums, int target) {
@@ -63,7 +65,7 @@ public class TargetSum {
     }
 
     // Another approach 
-    // Breaking down the problem into subset Sum problem
+    // Breaking down the problem into count partition with given difference problem
     /*The original problem statement is equivalent to:
     Find a subset of nums that need to be positive, and the rest of them negative, such that the sum is equal to target
     Let P be the positive subset and N be the negative subset
@@ -72,14 +74,47 @@ public class TargetSum {
     Here positive subset is P = [1, 3, 5] and negative subset is N = [2, 4]
 
     Then let's see how this can be converted to a subset sum problem:
-                                    sum(P) - sum(N) = target
-            sum(P) + sum(N) + sum(P) - sum(N) = target + sum(P) + sum(N)
-                                2 * sum(P) = target + sum(nums)
-    So the original problem has been converted to a subset sum problem as follows:
-    Find a subset P of nums such that sum(P) = (target + sum(nums)) / 2
+                                    sum(P) - sum(N) = target => Same as count partition with given difference
+                                    S1 - S2 = diff
      */
 
-    // Refer { https://leetcode.com/problems/target-sum/solutions/455024/dp-is-easy-5-steps-to-think-through-dp-questions/ }
-     // https://leetcode.com/problems/target-sum/solutions/97335/short-java-dp-solution-with-explanation/
+   // I will copy paste the count partition with given diff problem
 
+    private static int countPartitionsTabu(int n , int diff , int arr[]){
+        if(diff < 0) diff = -1*diff; // Extra line because the given target can be negative 
+        int totalSum =  0; 
+        for(int i : arr) totalSum += i;
+
+        // Some checks according to question
+        if( totalSum < diff) return 0 ;
+
+        if( (totalSum+diff) %2 != 0) return 0; // If it is odd on dividing by 2 it will result in decimal
+
+        int target = (totalSum+diff)/2 ;
+
+        int dp[][] = new int[n][target+1];
+
+        // Write down the base cases
+        if(arr[0] == 0) dp[0][0] = 2; // pick and not pick both are valid
+        else dp[0][0] = 1 ; // Target = 0  we donot pick 0th index
+
+        if(arr[0] != 0 && arr[0] <= target) dp[0][arr[0]] = 1; // base case where ind == 0 && target == arr[0]  , we will pick it
+
+        
+
+        // Write for loops for the changing parameters
+
+        for(int ind = 1 ; ind<n ; ind++){
+            for(int currSum = 0 ; currSum <= target ; currSum++){
+                // Copy the recurrence
+                int notPick = dp[ind-1][currSum];
+                int pick =  0 ;
+                if(arr[ind] <= currSum) pick = dp[ind-1][currSum - arr[ind]] ;
+
+                dp[ind][currSum] = (pick+notPick);
+            }
+        }
+
+        return dp[n-1][target];
+    }
 }
