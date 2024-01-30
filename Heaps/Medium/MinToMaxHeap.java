@@ -18,7 +18,7 @@ public class MinToMaxHeap {
     public static void main(String[] args) {
         int arr[] = {1,2,3,6,7,8};
 
-        System.out.println( Arrays.toString( MinToMaxHeap(arr.length, arr) )  );
+        System.out.println( Arrays.toString( MinToMax(arr.length, arr) )  );
         
     }
 
@@ -50,7 +50,7 @@ public class MinToMaxHeap {
     last non-leaf node in the binary tree and move upwards towards the root. The reason for 
     starting from the last non-leaf node is that leaf nodes (nodes with no children) are 
     already considered to be trivially heaps. */
-    private static int[] MinToMaxHeap(int n, int[] arr) {
+    private static int[] MinToMax(int n, int[] arr) {
         // Calling heapify process in bottom-up manner.
         for (int i = n / 2; i >= 0; i--) {
             heapify(arr, n, i);
