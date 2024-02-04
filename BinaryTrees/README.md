@@ -157,7 +157,8 @@ public List<Integer> inorderTraversal(TreeNode root) {
 ```
 * Visualization of the above code is as follows   
 <br>
-![Inorder Demo](resources/imagesMD/Inorder.png)
+
+![InorderDemo] (resources/imagesMD/Inorder.png)
 
 ### **PostOrder Traversal**
 * In postorder traversal, the left subtree  is visited first, then right subtree and then root node.
@@ -207,7 +208,8 @@ public List<Integer> inorderTraversal(TreeNode root) {
 
 * Visualization of the above approach
 <br>
-![Post Order 1](resources/imagesMD//postOrder1.png)
+
+![PostOrder1](resources/imagesMD//postOrder1.png)
 
 3. _Iterative Approach - 2_
 ```java
