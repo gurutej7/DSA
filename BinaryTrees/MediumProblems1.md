@@ -32,8 +32,12 @@
 ### 2. [Binary Tree Zig-Zag Level order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
 * Given the `root` of a binary tree, return the _zigzag level order traversal of its nodes_ values. (i.e., from left to right, then right to left for the next level and alternate between).
     * ![ZigzagLevelOrder](resources/imagesMD/zigzagLevelOrder.png)
+
+    
     <br>
     <br>
+
+
     * ![zizagLevelOrder2](resources/imagesMD/zizzagLevelOrder2.png)
 
 * _Approach 1 :_
