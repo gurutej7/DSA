@@ -62,8 +62,8 @@ public class DetectCycleInUDG {
         
         while(!q.isEmpty()){
             Pair curr = q.poll();
-            int node = curr.node;
-            int parent = curr.parent; // from where we are coming from
+            int node = curr.getFirst();
+            int parent = curr.getSecond(); // from where we are coming from
             
             for(int i : adj.get(node)){
                 if(!vis[i]) {
@@ -132,12 +132,5 @@ public class DetectCycleInUDG {
     }
 }
 
-class Pair{
-    int node;
-    int parent;
-    public Pair(int node,int parent){
-        this.node = node;
-        this.parent = parent;
-    }
-}
+
     

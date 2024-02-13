@@ -36,9 +36,9 @@ public class RottingOranges {
 
         while(!q.isEmpty()){
             Pair curr = q.poll();
-            int i = curr.u;
-            int j = curr.v;
-            int t = curr.time;
+            int i = curr.getFirst();
+            int j = curr.getSecond();
+            int t = curr.getThird();
             if(t > minTime) minTime = t;
             // check up
             if(i-1 >=0 && grid[i-1][j] == 1 && vis[i-1][j] == 0){
@@ -75,12 +75,3 @@ public class RottingOranges {
     // TC -> O(N*M)
 }
 
-class Pair{
-    int u , v, time;
-    public Pair(int u ,int v , int time){
-        this.u = u ;
-        this.v = v ;
-        this.time = time;
-    }
-}
-    

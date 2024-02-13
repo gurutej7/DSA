@@ -1,0 +1,43 @@
+package Graphs.BFSorDFS;
+
+public class Pair {
+    private int first;
+    private int second;
+    private int third;
+    private int fourth;
+
+    public Pair(int u, int v, int w) {
+        this.first = u;
+        this.second = v;
+        this.third = w;
+    }
+
+    public Pair(int u , int v){
+        this.first = u ;
+        this.second = v;
+    }
+
+    public Pair(int u , int v , int w , int x){
+        this.first = u ;
+        this.second = v ;
+        this.third = w;
+        this.fourth = x;
+    }
+
+    public int getFirst() {
+        return first;
+    }
+
+    public int getSecond() {
+        return second;
+    }
+
+    public int getThird() {
+        return third;
+    }
+
+    public int getFourth(){
+        return fourth;
+    }
+    
+}
