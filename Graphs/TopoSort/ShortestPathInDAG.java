@@ -46,14 +46,11 @@ public class ShortestPathInDAG {
 	    for(int i = 0 ; i < N ; i++) adj.add(new ArrayList<>());
 	    
 	    for(int i = 0 ; i < M ; i++){
-	        for(int j = 0 ; j < 3 ; j++){
 	            int a = edges[i][0];
 	            int b = edges[i][1];
 	            int w = edges[i][2];
 	            // edge =   a --w--> b
 	            adj.get(a).add(new Pair(b,w));
-	            
-	        }
 	    }
 	    
 	    // Prepare the stack using the toposort
