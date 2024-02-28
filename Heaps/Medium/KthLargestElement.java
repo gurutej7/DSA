@@ -16,16 +16,7 @@ Example 2:  Input: nums = [3,2,3,1,2,4,5,5,6], k = 4    Output: 4
  */
 
 public class KthLargestElement {
-    public static void main(String[] args) {
-        int nums[] = {3,2,1,5,6,4};
-        int k = 2;
 
-        System.out.println( findKthLargest1(nums, k) );
-        System.out.println( findKthLargest2(nums, k) );
-        System.out.println( findKthLargest3(nums, k) );
-        System.out.println( findKthLargest4(nums, k) );
-        
-    }
     // Naive Approach O(NlogN) time and O(1) space
     private static  int findKthLargest1(int[] nums, int k) {
         Arrays.sort(nums);
@@ -102,4 +93,65 @@ public class KthLargestElement {
 
     // 3 and 4 approaches will give TLE because of O(N^2) , when the pivot is always the first element
 
+
+    // Kth Smallest
+    // { https://www.geeksforgeeks.org/problems/kth-smallest-element5635/1 }
+
+    private static int kthSmallest(int[] arr,  int k) { 
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)-> b-a); // maxHeap
+        
+        for(int i : arr) {
+            pq.offer(i);
+            if(pq.size()  > k) pq.poll();
+        }
+        
+        return pq.peek();
+    } 
+
+    public static void main(String[] args) {
+        int nums[] = {3,2,1,5,6,4};
+        int k = 2;
+
+        System.out.println( findKthLargest1(nums, k) );
+        System.out.println( findKthLargest2(nums, k) );
+        System.out.println( findKthLargest3(nums, k) );
+        System.out.println( findKthLargest4(nums, k) );
+        System.out.println( kthSmallest(nums, k));
+        
+    }
+
 }
+/* 703. Kth Largest in a Stream
+{ https://leetcode.com/problems/kth-largest-element-in-a-stream/description/ }
+ */
+class KthLargest {
+    PriorityQueue<Integer> pq ;
+    int k;
+    public KthLargest(int K, int[] nums) {
+        pq = new PriorityQueue<>();
+        this.k = K ;
+        for(int i : nums){
+            pq.offer(i);
+            if(pq.size() > k) pq.poll();
+        }
+    }
+    
+    public int add(int val) {
+        if(pq.size() < k){
+            pq.offer(val);
+            return pq.peek();
+        }
+        if(val > pq.peek()){
+            pq.offer(val);
+            pq.poll();
+        }
+
+        return pq.peek();
+    }
+}
+
+/**
+ * Your KthLargest object will be instantiated and called as such:
+ * KthLargest obj = new KthLargest(k, nums);
+ * int param_1 = obj.add(val);
+ */
