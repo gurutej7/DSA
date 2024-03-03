@@ -4,13 +4,7 @@ import java.util.Arrays;
 
 
 public class Problems {
-    public static void main(String[] args) {
-        int nums[] = {1,2,3,4,5};
-
-        System.out.println(findMaximumXOR(nums));
-        System.out.println(maximumStrongPairXor(nums));
-    }
-
+   
     /* 421. Maximum Xor of two numbers in an Array
      * https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/description/
      * 
@@ -78,6 +72,68 @@ public class Problems {
             // Then the current x , because it cannot be valid to form a strong pair with any of the upcoming numbers , because the array is sorted 
         }
         return res;
+    }
+
+    /* 1707. Maximum Xor with an element from the array
+     * https://leetcode.com/problems/maximum-xor-with-an-element-from-array/description/
+     * 
+     * Example 1:   Input: nums = [0,1,2,3,4], queries = [[3,1],[1,3],[5,6]]        
+     * Output: [3,3,7]
+     * Explanation:
+     * 1) 0 and 1 are the only two integers not greater than 1. 0 XOR 3 = 3 and 1 XOR 3 = 2. The larger of the two is 3.
+     * 2) 1 XOR 2 = 3.
+     * 3) 5 XOR 2 = 7.
+     */
+
+    private static int[] maximizeXor(int[] nums, int[][] queries) {
+        int len = queries.length;
+        int n = nums.length;
+        int res[] = new int[len];
+        Arrays.sort(nums);
+
+        BinaryTrie root = new BinaryTrie();
+        
+        int temp[][] = new int[len][3];
+        for(int i = 0 ; i < len ; i++){
+            temp[i][0] = queries[i][0];
+            temp[i][1] = queries[i][1];
+            temp[i][2] = i ;// save the index;; // can`t figure out this in my first attempt and did the brute forece and got TLE in 57th testcase (:
+        }
+
+        Arrays.sort(temp , (a,b)->(a[1]-b[1])); // sort based on limit
+       
+        int ind = 0 ; 
+        for(int i = 0 ; i < len ; i++){
+            int limit = temp[i][1];
+            // System.out.println("limit " +limit);
+            int x = temp[i][0];
+            int ansIndex = temp[i][2] ; // instead of i , i put 0 here , spent 15 minutes trying to find it 
+            while(ind < n && nums[ind] <= limit){
+                // System.out.println("num " +nums[ind]);
+                root.insert(nums[ind]);
+                ind++;
+            }
+            int currXor = -1 ;
+
+            if(ind != 0) {
+                currXor = root.getMaxXor(x);
+                // System.out.println("currXor " + currXor + "   ansIndex :" + ansIndex);
+            }
+            res[ansIndex] = currXor ; 
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        int nums[] = {1,2,3,4,5};
+
+        System.out.println(findMaximumXOR(nums));
+        System.out.println(maximumStrongPairXor(nums));
+
+        int nums2[] = {0,1,2,3,4};
+        int queries[][] = {{3,1},{1,3},{5,6}};
+
+        System.out.println(  Arrays.toString(maximizeXor(nums2, queries)) );
     }
 }
 
